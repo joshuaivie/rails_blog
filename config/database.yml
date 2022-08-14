@@ -8,6 +8,16 @@ development:
   username: dev
   password: rails_user
 
+test:
+  host: localhost
+  port: 5432
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: rails_blog_test
+  username: dev
+  password: rails_user
+
 production:
   host: localhost
   port: 5432
