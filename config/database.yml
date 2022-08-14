@@ -1,0 +1,19 @@
+development:
+  host: localhost
+  port: 5432
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: rails_blog_development
+  username: dev
+  password: rails_user
+
+production:
+  host: localhost
+  port: 5432
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: rails_blog_production
+  username: dev
+  password: rails_user
