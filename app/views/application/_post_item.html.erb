@@ -1,12 +1,10 @@
-<article class="post-card">
+<div class="post_item">
   <div>
-    <h2>
-      <%= post.title %>
-    </h2>
-    <p><%= post.text.truncate(200) %></p>
+    <h2><%= post.title %></h2>
+    <p><%= post.text %></p>
   </div>
-  <span>
+  <div class="post_stats">
     Comments: <%= post.comments_counter %>,
     Likes: <%= post.likes_counter %>
-  </span>
-</article>
+  </div>
+</div>
