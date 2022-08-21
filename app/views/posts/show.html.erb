@@ -1,18 +1,30 @@
 <article class="post">
   <header class="post-header">
     <h1><%= @post.title %> by <%= @post.author.name %></h1>
-    <span class="foot-note">
+    <span>
       Comments: <%= @post.comments_counter %>,
       Likes: <%= @post.likes_counter %>
-      <%= render partial: "likes/form", locals: { post_id: @post.id } %>
+      <%= form_with url: user_post_likes_path(post_id: @post.id), method: :post do |form| %>
+        <%= form.submit 'Like' %>
+      <% end %>
     </span>
   </header>
   <div><%= simple_format(@post.text) %></div>
 </article>
-<section class="comment-list">
+<section class="comments">
   <% @post.comments.each do |comment| %>
     <%= render partial: "comment", locals: { comment: comment } %>
   <% end %>
   <hr>
-  <%= render partial: "comments/form", locals: { post_id: @post.id, current_user: @current_user } %>
+  <%= form_with url: user_post_comments_path(post_id: @post.id), method: :post do |form| %>
+    <div class="comment-card">
+      <div class="comment-user"><%= @current_user.name %></div>
+      <div class="comment-text">
+        <%= form.text_area :text, placeholder:'Contents' %>
+      </div>
+    </div>
+    <div class="justify-right">
+      <%= form.submit %>
+    </div>
+  <% end %>
 </section>

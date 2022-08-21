@@ -7,7 +7,7 @@
     <a href="<%= user_post_path(post.author_id, post) %>">
       <%= render partial: "post_item", locals: { post: post } %>
     </a>
-    <section class="comment-list box">
+    <section class="comments box">
       <% post.most_recent_comments.reverse.each do |comment| %>
         <%= render partial: "comment", locals: { comment: comment } %>
       <% end %>

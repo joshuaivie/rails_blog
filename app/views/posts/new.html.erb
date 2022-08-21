@@ -1,6 +1,10 @@
 <section class="edit-post">
   <h1>New post</h1>
-  <%= render "form", post: [@user, @post] %>
+  <%= form_with model: [@user, @post] do |form| %>
+    <%= form.text_field :title, placeholder:'title' %>
+    <%= form.text_area :text, placeholder:'Contents' %>
+    <%= form.submit %>
+  <% end %>
 </section>
 <section class="action-butons">
   <%= link_to "Back to posts", user_posts_path, class: 'btn' %>

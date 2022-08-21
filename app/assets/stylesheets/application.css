@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
 
+body {
+  margin: 0;
+  background: #efefef;
+  font-family: "Inter", sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -14,31 +20,8 @@ section {
   margin: 50px 0;
 }
 
-.comment-user {
-  font-weight: bold;
-}
-
-.comment-card {
-  display: flex;
-  gap: 10px;
-}
-
-section.comment-list {
+section.comments {
   margin-top: 10px;
-}
-
-.btn {
-  display: inline-block;
-  border: none;
-  padding: 5px 10px;
-  background: #fafafa;
-  color: inherit;
-  font-weight: bold;
-  text-decoration: inherit;
-}
-
-.btn.disabled {
-  background: #dfdfdf;
 }
 
 section.action-butons {
@@ -60,22 +43,39 @@ a > article:hover {
   filter: brightness(1.1);
 }
 
-body {
-  margin: 0;
-  background: #efefef;
-  font-family: "Inter", sans-serif;
-}
-
 article.user-card,
-.bio,
+.user_bio,
 article.post-card,
-.comment-list,
+.comments,
 article.post {
   margin: 24px;
   padding: 10px;
 }
 
-.bio {
+.comment-user {
+  font-weight: bold;
+}
+
+.comment-card {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  padding: 5px 10px;
+  background: #fafafa;
+  color: inherit;
+  font-weight: bold;
+  text-decoration: inherit;
+}
+
+.btn.disabled {
+  background: #dfdfdf;
+}
+
+.user_bio {
   background: #fff;
   padding: 10px 25px;
   border-radius: 10px;

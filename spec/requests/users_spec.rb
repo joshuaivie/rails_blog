@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  describe 'GET /users' do
+  describe 'Fetch list of users' do
     before(:example) do
       get '/users'
     end
@@ -15,7 +15,7 @@ RSpec.describe 'Users', type: :request do
     end
   end
 
-  describe 'GET /users/1' do
+  describe 'Fetch user with id 1' do
     before(:example) do
       get '/users/1'
     end
