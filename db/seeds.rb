@@ -7,9 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # create users
-@user_one = User.create(name: "Joshua Ivie", photo: "https://drive.google.com/file/d/1s2u6LWHBQrf8FXZBm9qoKXoTuI-wwRSn/view?usp=sharing", bio: "Joshua is a 24 year old builder", posts_counter: 0)
-@user_two = User.create(name: "Sarah Ivie", photo: "https://drive.google.com/file/d/1s2u6LWHBQrf8FXZBm9qoKXoTuI-wwRSn/view?usp=sharing", bio: "Sarah is a 22 year old lawyer", posts_counter: 0)
-@user_three = User.create(name: "Naomi Ivie", photo: "https://drive.google.com/file/d/1s2u6LWHBQrf8FXZBm9qoKXoTuI-wwRSn/view?usp=sharing", bio: "Sarah is an 18 year old student", posts_counter: 0)
+@user_one = User.create(name: "Joshua Ivie", photo: "https://avatars.dicebear.com/api/micah/joshua-ivie.svg", bio: "Joshua is a 24 year old builder", posts_counter: 0)
+@user_two = User.create(name: "Sarah Ivie", photo: "https://avatars.dicebear.com/api/micah/sarah-ivie.svg", bio: "Sarah is a 22 year old lawyer", posts_counter: 0)
+@user_three = User.create(name: "Naomi Ivie", photo: "https://avatars.dicebear.com/api/micah/naomi-ivie.svg", bio: "Sarah is an 18 year old student", posts_counter: 0)
 
 # create posts
 @post_one = Post.create(author: @user_one, title: "Joshua's First Post", text: "This is Joshua's first post. I hope you enjoy it.", comments_counter: 0, likes_counter: 0)
