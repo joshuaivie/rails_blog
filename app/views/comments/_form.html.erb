@@ -1,0 +1,11 @@
+<%= form_with url: user_post_comments_path(post_id: post_id), method: :post do |form| %>
+  <div class="comment-card">
+    <div class="comment-user"><%= current_user.name %></div>
+    <div class="comment-text">
+      <%= form.text_area :text, placeholder:'Contents' %>
+    </div>
+  </div>
+  <div class="justify-right">
+    <%= form.submit 'Comment'%>
+  </div>
+<% end %>

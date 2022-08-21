@@ -4,6 +4,7 @@
     <span class="foot-note">
       Comments: <%= @post.comments_counter %>,
       Likes: <%= @post.likes_counter %>
+      <%= render partial: "likes/form", locals: { post_id: @post.id } %>
     </span>
   </header>
   <div><%= simple_format(@post.text) %></div>
@@ -12,5 +13,6 @@
   <% @post.comments.each do |comment| %>
     <%= render partial: "comment", locals: { comment: comment } %>
   <% end %>
+  <hr>
+  <%= render partial: "comments/form", locals: { post_id: @post.id, current_user: @current_user } %>
 </section>
- 
