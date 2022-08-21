@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>User List</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
-
-  <body>
-    <h1>This is a list of posts</h1>
-  </body>
-</html>
+<%= render partial: "user_item", locals: { user: @user, single: true } %>
+<section>
+  <% @posts.each do |post| %>
+    <a href="<%= user_post_path(post.author_id, post) %>">
+      <%= render partial: "post_item", locals: { post: post } %>
+    </a>
+    <section class="comment-list box">
+      <% post.most_recent_comments.reverse.each do |comment| %>
+        <%= render partial: "comment", locals: { comment: comment } %>
+      <% end %>
+    </section>
+  <% end %>
+</section>
+<section class="action-butons">
+  <% (1..@no_of_pages).each do |page| %>
+    <%= link_to page.to_s, user_posts_path(@user, page: page), class:'btn' if @current_page != page %>
+    <%= content_tag :div, page.to_s, class: ['btn', 'disabled'] if @current_page == page %>
+  <% end %>
+</section>
