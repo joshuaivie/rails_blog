@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>User List</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
-
-  <body>
-    <h1>This is a list of users</h1>
-  </body>
-</html>
+<% @users.each do |user| %>
+  <a href="<%= user_path(user) %>">
+    <%= render partial: "user_item", locals: { user: user, single: false } %>
+  </a>
+<% end %>
