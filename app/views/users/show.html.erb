@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>User List</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
-
-  <body>
-    <h1>This is a single users profile</h1>
-  </body>
-</html>
+<%= render partial: "user_item", locals: { user: @user, single: true } %>
+<div class="bio">
+  <h2>Bio</h2>
+  <p><%= @user.bio %></p>
+</div>
+<section>
+  <% @user.most_recent_posts.each do |post| %>
+    <a href="<%= user_post_path(post.author_id, post) %>">
+      <%= render partial: "post_item", locals: { post: post } %>
+    </a>
+  <% end %>
+</section>
+<section class="action-butons">
+  <%= link_to "See all posts", user_posts_path(@user), class:'btn' %>
+</section>
