@@ -1,18 +1,36 @@
-<article class="post">
-  <header class="post-header">
-    <h1><%= @post.title %> by <%= @post.author.name %></h1>
-    <span class="foot-note">
+<div class="post_details">
+  <div class="post_header">
+    <div>
+      <h1 class="post_title"><%= @post.title %></h1>
+      <span class="post_subtitle">by <%= @post.author.name %></span>
+    </div>
+    <div class="post_stats">
       Comments: <%= @post.comments_counter %>,
       Likes: <%= @post.likes_counter %>
-      <%= render partial: "likes/form", locals: { post_id: @post.id } %>
-    </span>
-  </header>
+      <div class="button_group">
+        <%= form_with url: user_post_likes_path(post_id: @post.id), method: :post do |form| %>
+          <%= form.submit 'Like', class: 'btn' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <div><%= simple_format(@post.text) %></div>
-</article>
-<section class="comment-list">
-  <% @post.comments.each do |comment| %>
-    <%= render partial: "comment", locals: { comment: comment } %>
+</div>
+<div class="user_comments">
+  <span class="section_title">User Comments</span>
+  <% @post.comments.each_with_index do |comment, index| %>
+    <%= render partial: "comment_item", locals: { position: (index + 1), comment: comment } %>
   <% end %>
-  <hr>
-  <%= render partial: "comments/form", locals: { post_id: @post.id, current_user: @current_user } %>
-</section>
+</div>
+<div class="add_user_comment">
+  <span class="section_title">Add Comment</span>
+  <%= form_with url: user_post_comments_path(post_id: @post.id), class: 'form', method: :post do |form| %>
+    <div>Username: <%= @current_user.name %></div>
+    <div>
+      <%= form.text_area :text, placeholder:'Please write a comment', class: 'text_area', rows: 2 %>
+    </div>
+    <div>
+      <%= form.submit 'Comment', class: 'btn' %>
+    </div>
+  <% end %>
+</div>

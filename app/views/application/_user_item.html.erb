@@ -1,11 +1,13 @@
-<article class="user-card <%= single ? 'single' : '' %>">
-  <%= image_tag(user.photo) %>
-  <div>
-    <h1>
+<div class="user_item <%= single ? 'single' : '' %>">
+  <div class="user_image">
+    <%= image_tag(user.photo) %>
+  </div>
+  <div class="user_details">
+    <h2 class="user_name">
       <%= user.name %>
-    </h1>
-    <span>
+    </h2>
+    <span class="user_counter">
       Number of posts: <%= user.posts_counter %>
     </span>
   </div>
-</article>
+</div>

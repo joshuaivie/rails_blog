@@ -1,7 +1,9 @@
-<section class="edit-post">
+<%= link_to "Back to posts", user_posts_path %>
+<div class="new_post">
   <h1>New post</h1>
-  <%= render "form", post: [@user, @post] %>
-</section>
-<section class="action-butons">
-  <%= link_to "Back to posts", user_posts_path, class: 'btn' %>
-</section>
+  <%= form_with model: [@user, @post], class: 'add_post' do |form| %>
+    <%= form.text_field :title, placeholder:'Please enter the post Title', class: 'input_area' %>
+    <%= form.text_area :text, placeholder:'Please enter the post body', class: 'input_area' %>
+    <%= form.submit 'Create Post', class: 'btn flex_start' %>
+  <% end %>
+</div>

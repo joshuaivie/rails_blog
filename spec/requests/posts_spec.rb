@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-  describe 'GET /users/1/posts' do
+  describe 'Fetch all user one posts' do
     before(:example) do
       get '/users/1/posts'
     end
@@ -15,7 +15,7 @@ RSpec.describe 'Posts', type: :request do
     end
   end
 
-  describe 'GET /users/1/posts/1' do
+  describe 'Fetch user ones post with id 1' do
     before(:example) do
       get '/users/1/posts/1'
     end

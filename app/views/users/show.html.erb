@@ -1,15 +1,15 @@
-<%= render partial: "user_item", locals: { user: @user, single: true } %>
-<div class="bio">
+<%= render partial: "user_item", locals: { single: true, user: @user } %>
+<div class="user_bio">
   <h2>Bio</h2>
   <p><%= @user.bio %></p>
 </div>
-<section>
+<div class="user_posts">
   <% @user.most_recent_posts.each do |post| %>
     <a href="<%= user_post_path(post.author_id, post) %>">
       <%= render partial: "post_item", locals: { post: post } %>
     </a>
   <% end %>
-</section>
-<section class="action-butons">
-  <%= link_to "See all posts", user_posts_path(@user), class:'btn' %>
-</section>
+</div>
+<div class="button_group">
+  <%= link_to "All Posts", user_posts_path(@user), class:'btn' %>
+</div>

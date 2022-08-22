@@ -1,22 +1,22 @@
-<%= render partial: "user_item", locals: { user: @user, single: true } %>
-<section class="action-butons">
+<div class="button_group">
   <%= link_to "New post", new_user_post_path, class: 'btn' %>
-</section>
-<section>
+</div>
+<%= render partial: "user_item", locals: { user: @user, single: true } %>
+<div class="user_posts">
   <% @posts.each do |post| %>
     <a href="<%= user_post_path(post.author_id, post) %>">
       <%= render partial: "post_item", locals: { post: post } %>
     </a>
-    <section class="comment-list box">
-      <% post.most_recent_comments.reverse.each do |comment| %>
-        <%= render partial: "comment", locals: { comment: comment } %>
+    <div class="user_comments">
+      <% post.most_recent_comments.each_with_index do |comment, index| %>
+        <%= render partial: "comment_item", locals: { position: (index + 1), comment: comment } %>
       <% end %>
-    </section>
+    </div>
   <% end %>
-</section>
-<section class="action-butons">
+</div>
+<div class="button_group">
   <% (1..@no_of_pages).each do |page| %>
     <%= link_to page.to_s, user_posts_path(@user, page: page), class:'btn' if @current_page != page %>
     <%= content_tag :div, page.to_s, class: ['btn', 'disabled'] if @current_page == page %>
   <% end %>
-</section>
+</div>
