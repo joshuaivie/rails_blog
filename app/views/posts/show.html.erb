@@ -18,7 +18,7 @@
 </div>
 <div class="user_comments">
   <span class="section_title">User Comments</span>
-  <% @post.comments.each_with_index do |comment, index| %>
+  <% @post.comments.includes([:author]).each_with_index do |comment, index| %>
     <%= render partial: "comment_item", locals: { position: (index + 1), comment: comment } %>
   <% end %>
 </div>
