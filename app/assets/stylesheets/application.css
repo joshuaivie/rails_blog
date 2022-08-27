@@ -27,11 +27,6 @@ a {
   margin: 12.5px 0;
 }
 
-.user_item:hover .user_details,
-.user_item:hover .user_image img {
-  background: #fff;
-}
-
 .user_item .user_details {
   padding: 10px 20px;
   background: #f6f6f6;
@@ -53,6 +48,11 @@ a {
   border: 1px solid #e5e5e5;
 }
 
+.user_item:hover .user_details,
+.user_item:hover .user_image img {
+  background: #fff;
+}
+
 .user_item.single .user_details,
 .user_item.single .user_image img {
   background: #fff;
@@ -67,7 +67,7 @@ a {
 }
 
 .user_posts {
-  margin: 50px 0px;
+  margin: 50px 0;
 }
 
 .post_item {
@@ -110,8 +110,6 @@ a {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .btn:hover {
