@@ -8,7 +8,7 @@
       <%= render partial: "post_item", locals: { post: post } %>
     </a>
     <div class="user_comments">
-      <% post.most_recent_comments.each_with_index do |comment, index| %>
+      <% post.most_recent_comments.includes([:author]).each_with_index do |comment, index| %>
         <%= render partial: "comment_item", locals: { position: (index + 1), comment: comment } %>
       <% end %>
     </div>
