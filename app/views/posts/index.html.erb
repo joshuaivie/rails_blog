@@ -14,7 +14,7 @@
     </div>
   <% end %>
 </div>
-<div class="button_group">
+<div class="button_group" id="pagination">
   <% (1..@no_of_pages).each do |page| %>
     <%= link_to page.to_s, user_posts_path(@user, page: page), class:'btn' if @current_page != page %>
     <%= content_tag :div, page.to_s, class: ['btn', 'disabled'] if @current_page == page %>
