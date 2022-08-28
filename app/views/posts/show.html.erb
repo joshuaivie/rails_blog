@@ -1,4 +1,9 @@
 <div class="post_details">
+  <% if can? :destroy, @post %>
+    <div class="post-actions">
+      <%= button_to "Delete", [@post.author, @post], method: :delete, confirm: "Are you sure You want to delete this post?" %>
+    </div>
+  <% end %>
   <div class="post_header">
     <div>
       <h1 class="post_title"><%= @post.title %></h1>
