@@ -18,16 +18,16 @@
 </div>
 <div class="user_comments">
   <span class="section_title">User Comments</span>
-  <% @post.comments.each_with_index do |comment, index| %>
+  <% @post.comments.includes([:author]).each_with_index do |comment, index| %>
     <%= render partial: "comment_item", locals: { position: (index + 1), comment: comment } %>
   <% end %>
 </div>
 <div class="add_user_comment">
   <span class="section_title">Add Comment</span>
-  <%= form_with url: user_post_comments_path(post_id: @post.id), class: 'form', method: :post do |form| %>
+  <%= form_with url: user_post_comments_path(post_id: @post.id), class: 'add_comment', method: :post do |form| %>
     <div>Username: <%= @current_user.name %></div>
     <div>
-      <%= form.text_area :text, placeholder:'Please write a comment', class: 'text_area', rows: 2 %>
+      <%= form.text_area :text, placeholder:'Please write a comment', class: 'input_area', rows: 2 %>
     </div>
     <div>
       <%= form.submit 'Comment', class: 'btn' %>

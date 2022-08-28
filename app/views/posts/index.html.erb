@@ -8,13 +8,13 @@
       <%= render partial: "post_item", locals: { post: post } %>
     </a>
     <div class="user_comments">
-      <% post.most_recent_comments.each_with_index do |comment, index| %>
+      <% post.most_recent_comments.includes([:author]).each_with_index do |comment, index| %>
         <%= render partial: "comment_item", locals: { position: (index + 1), comment: comment } %>
       <% end %>
     </div>
   <% end %>
 </div>
-<div class="button_group">
+<div class="button_group" id="pagination">
   <% (1..@no_of_pages).each do |page| %>
     <%= link_to page.to_s, user_posts_path(@user, page: page), class:'btn' if @current_page != page %>
     <%= content_tag :div, page.to_s, class: ['btn', 'disabled'] if @current_page == page %>

@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id].to_i)
     @no_of_pages = (@user.posts_counter.to_f / 3).ceil
     @current_page = params[:page].nil? || params[:page].to_i < 1 ? 1 : params[:page].to_i
-    @posts = Post.where(author: @user).order(id: :asc).limit(3).offset((@current_page - 1) * 3)
+    @posts = @user.posts.includes(:comments).order(id: :asc).limit(3).offset((@current_page - 1) * 3)
   end
 
   def new
