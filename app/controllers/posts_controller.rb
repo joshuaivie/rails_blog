@@ -33,6 +33,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id].to_i)
   end
 
+  def destroy
+    @post.destroy
+    edirect_to user_posts_path(params[:user_id]), notice: 'Post deleted.'
+  end
+
   private
 
   def post_params
