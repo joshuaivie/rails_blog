@@ -1,4 +1,9 @@
 <div class="post_details">
+  <% if can? :destroy, @post %>
+    <div class="post-actions">
+      <%= button_to "Delete", [@post.author, @post], method: :delete, class: 'btn', confirm: "Are you sure You want to delete this post?" %>
+    </div>
+  <% end %>
   <div class="post_header">
     <div>
       <h1 class="post_title"><%= @post.title %></h1>
@@ -18,7 +23,7 @@
 </div>
 <div class="user_comments">
   <span class="section_title">User Comments</span>
-  <% @post.comments.includes([:author]).each_with_index do |comment, index| %>
+  <% @post.comments.includes([:author, :post]).each_with_index do |comment, index| %>
     <%= render partial: "comment_item", locals: { position: (index + 1), comment: comment } %>
   <% end %>
 </div>

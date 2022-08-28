@@ -11,7 +11,13 @@ class User < ApplicationRecord
   validates :name, presence: { allow_blank: false, message: 'Please supply a user name' }
   validates :posts_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
+  ROLES = %i[admin default].freeze
+
   def most_recent_posts
     posts.limit(3).order(updated_at: :asc)
+  end
+
+  def is?(requested_role)
+    role == requested_role.to_s
   end
 end
