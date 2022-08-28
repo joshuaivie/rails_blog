@@ -1,7 +1,7 @@
 # create users
-@user_one = User.create(name: "Joshua Ivie", email: "joshua@joshuaivie.com", photo: "https://avatars.dicebear.com/api/micah/joshua-ivie.svg", bio: "Joshua is a 24 year old builder", posts_counter: 0, password: "password", password_confirmation: "password")
-@user_two = User.create(name: "Sarah Ivie", email: "sarah@sarahivie.com", photo: "https://avatars.dicebear.com/api/micah/sarah-ivie.svg", bio: "Sarah is a 22 year old lawyer", posts_counter: 0, password: "password", password_confirmation: "password")
-@user_three = User.create(name: "Naomi Ivie", email: "naomi@naomivie.com", photo: "https://avatars.dicebear.com/api/micah/naomi-ivie.svg", bio: "Sarah is an 18 year old student", posts_counter: 0, password: "password", password_confirmation: "password")
+@user_one = User.create(name: "Joshua Ivie", email: "joshua@joshuaivie.com", photo: "https://avatars.dicebear.com/api/micah/joshua-ivie.svg", bio: "Joshua is a 24 year old builder", posts_counter: 0, password: "password", password_confirmation: "password", confirmed_at: DateTime.now, role: "admin")
+@user_two = User.create(name: "Sarah Ivie", email: "sarah@sarahivie.com", photo: "https://avatars.dicebear.com/api/micah/sarah-ivie.svg", bio: "Sarah is a 22 year old lawyer", posts_counter: 0, password: "password", password_confirmation: "password", confirmed_at: DateTime.now)
+@user_three = User.create(name: "Naomi Ivie", email: "naomi@naomivie.com", photo: "https://avatars.dicebear.com/api/micah/naomi-ivie.svg", bio: "Sarah is an 18 year old student", posts_counter: 0, password: "password", password_confirmation: "password", confirmed_at: DateTime.now)
 
 # create commenets
 @comment_one = Comment.create(text: "Sarah thinks this is a great post", author: @user_two, post: @post_one)
