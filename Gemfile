@@ -73,6 +73,10 @@ group :test do
   gem 'webdrivers'
 end
 
+group :development do
+  gem 'mailcatcher'
+end
+
 group :development, :test do
   gem 'bullet'
   gem 'rails-controller-testing'
