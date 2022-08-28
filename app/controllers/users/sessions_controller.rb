@@ -14,10 +14,9 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  def destroy
-    super
-    p '   here         '
-  end
+  # def destroy
+  #   super
+  # end
 
   # protected
 
