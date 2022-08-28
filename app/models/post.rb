@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
-  has_many :comments, dependent: :destroy
-  has_many :likes, dependent: :destroy
+  has_many :comments
+  has_many :likes
 
   validates :title, presence: { allow_blank: false, message: 'Please supply a post title' },
                     length: { maximum: 250, message: 'Post title must not exceed 250 characters' }
